@@ -1,0 +1,22 @@
+{
+  "name": "node-hangman",
+  "version": "1.0.0",
+  "description": "Hangman that runs with Node",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mark-A-A/node-HangMan.git"
+  },
+  "author": "Mark Awai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mark-A-A/node-HangMan/issues"
+  },
+  "homepage": "https://github.com/Mark-A-A/node-HangMan#readme",
+  "dependencies": {
+    "prompt": "^0.2.14"
+  }
+}
