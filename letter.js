@@ -1,3 +1,5 @@
+debugger
+
 function Letter(let) {              // Start by creating a constructor function named Letter
                                     // it should take an argument let
   this.charac = let;                // create a property called charac and store the argument let

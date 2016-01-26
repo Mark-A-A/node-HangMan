@@ -1,40 +1,76 @@
+debugger
 var letter = require("./letter.js");
 
 function Word(wrd) {
+  debugger
   this.word = wrd,
   
   this.lets = [],
   
-  this.found = false
+  this.found = false,
 
-  this.GetLets = function(){
-    for( var i = 0; i < this.word.length; i++){
+  this.getLets = function(){
+    debugger                       //Function to build Letter objects of word to guess
+    for( var i = 0; i < this.word.length; i++){     //Letters are put into "lets" array
       var wordLetter = this.word[i];
-      this.lets.push(wordLetter);
-      console.log(this.lets);
+      console.log(wordLetter);
+      var wordLetterObject = new letter(wordLetter);
+      console.log(wordLetterObject);
+      this.lets.push(wordLetterObject);
+      
+    }
+    console.log(this.lets); // Print array of word letters
+    return this.lets;
+  },
+
+  this.checkIfLetterFound = function(guessLetter){
+    debugger
+    var whatToReturn = 0;                                 //counter for letters 
+    for (var i = 0; i < this.lets.length; i++){
+      console.log( this.lets[i] );                        //checking letter object
+      console.log( this.lets[i].charac );             //What is the letter to compare to?
+      
+      if( (this.lets[i].charac) === guessLetter) {    //If guessed letter = word letter
+        this.lets[i].appear = true;                   //Set the appear object to true
+        whatToReturn += 1;                            //Increase the count of whatToReturn
+      }
+      
+      return whatToReturn;
     }
   },
 
-  this.CheckIfLetterFound = function(){
-
+  this.didWeFindTheWord = function(){
+    debugger
+    this.lets.every = function(curLet) {
+      console.log(curLet)
+      if(curLet.appear === true){
+       this.found = true; 
+      }
+    }
+    return this.found;
   },
 
-  this.DidWeFindTheWord = function(){
+  this.wordRender = function WordRender() {   
+    debugger                                                                                                                                      
+      //create a variable called str set it to "" empty string                                                                                                                  
+      var str = '';
+      //it will run a loop that iterate over each object in let array
+      //everytime the loop iterates, calling the letterRender on that object and then string 
+      //concatenate that to the varaible str
 
-  },
-
-  this.WordRender = function() {
-    function WordRender () {                                                                                                                                         
-//create a variable called str set it to "" empty string                                                                                                                  
-var str = '';
-//it will run a loop that iterate over each object in let array
-//everytime the loop iterates, calling the letterRender on that object and then string //concatenate that to the varaible str
-
-  for (var i= 0; i <this.lets.length; i++){
-    str += Letter.letterRender(i);
-    return str
+      for (var i= 0; i <this.lets.length; i++){
+        str += Letter.letterRender(i);
+      }
+      return str
+    
   }
+}; //End of Word object
 
-}
-  }
-}
+var newWord = new Word("apple");
+console.log(newWord);
+
+var wordLetters = newWord.getLets();
+console.log(wordLetters);
+
+var letterCheckIfFound = newWord.checkIfLetterFound("v");
+console.log(letterCheckIfFound);
