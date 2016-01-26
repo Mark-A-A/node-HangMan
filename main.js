@@ -26,7 +26,7 @@ var game = {
     console.log(this.currentWord);
     
     this.currentWord.getLets();
-    console.log(currentWord.lets); //What are the letters of the word they have to guess?
+    console.log(this.currentWord.lets); //What are the letters of the word they have to guess?
 
     //currentWord.keepPromptingUser(); 
 
@@ -40,24 +40,25 @@ var game = {
     // Get from the user: Their Guess
     // 
     prompt.get(['guessLetter'], function (err, result) {
-      console.log(“The Letter or space you guessed is ” + result.guessLetter);
+      console.log(result);
+      console.log("The Letter or space you guessed is" + result.guessLetter);
       
       // Create a variable named findHowManyOfUserGuess, 
       //set it to currentWrd.checkIfLetterFound(result.guessLetter)
       var findHowManyOfUserGuess = self.currentWord.checkIfLetterFound(result.guessLetter);
 
       if (findHowManyOfUserGuess === 0){
-        console.log( “You guessed Wrong!”);
+        console.log( "You guessed Wrong!");
         self.guessesRemaining --;
       } else {
-        console.log( “You guessed Right!”);
+        console.log("You guessed Right!");
         if ( self.currentWord.didWeFindTheWord() === true ){
           console.log("You won!!!!");
           return 1;
         }
       };
 
-      console.log("Guesses remaining: " +  guessesRemaining);
+      console.log("Guesses remaining: " +  self.guessesRemaining);
 
       //console log( call the wordRender() method on currentWrd )
 
@@ -66,7 +67,7 @@ var game = {
 
       if(self.guessesRemaining > 0 && self.currentWord.found === false ){
         keepPromptingUser();
-      } else if (guessesRemaining === 0) {
+      } else if (self.guessesRemaining === 0) {
         console.log("Game Over Bro. THe answer was ");
       } else {
         console.log(currentWord.wordRender() );  
