@@ -13,14 +13,14 @@ function Word(wrd) {
     debugger                       //Function to build Letter objects of word to guess
     for( var i = 0; i < this.word.length; i++){     //Letters are put into "lets" array
       var wordLetter = this.word[i];
-      console.log(wordLetter);
+      //console.log(wordLetter);
       var wordLetterObject = new letter(wordLetter);
-      console.log(wordLetterObject);
+      //console.log(wordLetterObject);
       this.lets.push(wordLetterObject);
       
     }
-    console.log(this.lets); // Print array of word letters
-    return this.lets;
+    //console.log(this.lets); // Print array of word letters
+    //return this.lets;
   },
 
   this.checkIfLetterFound = function(guessLetter){

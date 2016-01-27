@@ -36,7 +36,7 @@ var game = {
   keepPromptingUser: function(){
     debugger
     var self = this;
-    console.log(self);
+    //console.log(self);
 
     // 
     // Get from the user: Their Guess
@@ -75,7 +75,7 @@ var game = {
       } else if (self.guessesRemaining === 0) {
         console.log("Game Over Bro. The answer was " + self.currentWord);
       } else {
-        console.log(this.currentWord)
+        //console.log(this.currentWord)
         console.log(this.currentWord.wordRender() );  
       };
 
