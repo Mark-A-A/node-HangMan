@@ -19,8 +19,8 @@ function Word(wrd) {
       this.lets.push(wordLetterObject);
       
     }
-    //console.log(this.lets); // Print array of word letters
-    //return this.lets;
+    console.log("Arrary of Letters: "+this.lets); // Print array of word letters
+    return this.lets;
   },
 
   this.checkIfLetterFound = function(guessLetter){
