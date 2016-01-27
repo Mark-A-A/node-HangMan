@@ -17,17 +17,17 @@ var game = {
   startGame: function(wrd){
     debugger
     var wordArrayIndex = Math.floor( (Math.random() * this.wordBank.length) ); //Choose a number between 0 and wordBank.length-1
-    console.log(wordArrayIndex);
-    console.log(this.wordBank[0]);
+    // console.log(wordArrayIndex);
+    // console.log(this.wordBank[0]);
     var wordToGuess = this.wordBank[wordArrayIndex];
-    console.log(wordToGuess);
+    // console.log(wordToGuess);
     var wordToUse = new Word(wordToGuess);  //Need to Refactor
-    console.log(wordToUse);
+    // console.log(wordToUse);
     this.currentWord = wordToUse;
-    console.log(this.currentWord);
+    // console.log(this.currentWord);
     
     this.currentWord.getLets();
-    console.log(this.currentWord.lets); //What are the letters of the word they have to guess?
+    //console.log(this.currentWord.lets); //What are the letters of the word they have to guess?
 
     this.keepPromptingUser(); 
 
@@ -43,7 +43,7 @@ var game = {
     // 
     prompt.get(['guessLetter'], function (err, result) {
       debugger
-      console.log(result);
+      //console.log(result);
       console.log("The Letter or space you guessed is " + result.guessLetter);
       
       // Create a variable named findHowManyOfUserGuess, 
@@ -66,14 +66,14 @@ var game = {
 
       //console log( call the wordRender() method on currentWrd )
 
-      console.log(self.currentWord.wordRender());
+      //console.log(self.currentWord.wordRender());
       var currentWordRender = self.currentWord.wordRender();
       console.log(currentWordRender);
 
       if(self.guessesRemaining > 0 && self.currentWord.found === false ){
-        keepPromptingUser();
+        self.keepPromptingUser();
       } else if (self.guessesRemaining === 0) {
-        console.log("Game Over Bro. The answer was ");
+        console.log("Game Over Bro. The answer was " + self.currentWord);
       } else {
         console.log(this.currentWord)
         console.log(this.currentWord.wordRender() );  
